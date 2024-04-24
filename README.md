@@ -2,7 +2,11 @@
 This repo is to track my journey on Computational Neuroscience.
 
 
+# Resources
 
+- [Bernstein Comp Neuro Course Resources](https://bernstein-network.de/en/teaching-and-research/study-and-training/online-learning/)
+- [NPTEL IIT Kharagpur Course](https://nptel.ac.in/courses/102105100)
+- [Coursera CN Course Rajesh PN Rao](https://www.coursera.org/learn/computational-neuroscience/)
 
 # Brain Machine Pong Game
 

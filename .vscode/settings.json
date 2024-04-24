@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "eigen": "cpp",
+        "dense": "cpp",
+        "core": "cpp",
+        "cholesky": "cpp",
+        "xstring": "cpp",
+        "vector": "cpp"
+    }
+}
