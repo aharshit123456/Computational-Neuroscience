@@ -57,10 +57,13 @@ Matrix *matrix_loadfromCSV(char *filestring)
                 numstr[k] = entry[f_ind];
                 f_ind++;
                 k++;
+                if (comma_count == col)
+                    break;
             }
             comma_count++;
             f_ind++;
             e = atof(numstr);
+            printf("%1.2f ", e);
             matrix->entries[i][j] = e;
         }
     }
@@ -236,7 +239,11 @@ Matrix *matrix_flatten(Matrix *m, int axis)
     return mat;
 }
 
-Matrix *multiply(Matrix *m1, Matrix *m2) {}
+Matrix *multiply(Matrix *m1, Matrix *m2)
+{
+    Matrix *mat;
+    return mat;
+}
 Matrix *add(Matrix *m1, Matrix *m2)
 {
 
@@ -263,7 +270,11 @@ Matrix *subtract(Matrix *m1, Matrix *m2)
     }
     return mat;
 }
-Matrix *dot(Matrix *m1, Matrix *m2) {}
+Matrix *dot(Matrix *m1, Matrix *m2)
+{
+    Matrix *mat;
+    return mat;
+}
 Matrix *scale(double n, Matrix *m)
 {
     Matrix *mat = matrix_create(m->rows, m->cols);

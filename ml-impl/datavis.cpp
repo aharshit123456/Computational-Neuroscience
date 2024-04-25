@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "matrix.h"
+#include "ETL.h"
 
 #define MAXCHAR 100
 
@@ -18,4 +19,10 @@ int main()
     // matrix_print(file_mat);
 
     Matrix *matrix = matrix_loadfromCSV("iris/iris.data");
+    Matrix *meanmat = mean(matrix);
+    printf("\n \n");
+    matrix_print(meanmat);
+    Matrix *stddivmat = stddiv(matrix);
+    printf("\n \n");
+    matrix_print(stddivmat);
 }
