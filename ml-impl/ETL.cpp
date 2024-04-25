@@ -5,9 +5,6 @@ Functions needed
 
 function :: input -> output
 
-*io*
-readCSV :: file->2d array
-
 
 *stats*
 mean :: 2d array (mxn) -> 1d array (n)
