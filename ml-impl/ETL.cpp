@@ -35,18 +35,35 @@ Matrix *mean(Matrix *m)
 
 Matrix *stddiv(Matrix *m)
 {
-    Matrix *stddiv = matrix_create(m->cols, 1);
+    Matrix *stddivmat = matrix_create(m->cols, 1);
     Matrix *meanmat = mean(m);
     for (int j = 0; j < m->cols; j++)
     {
         float sum = 0.0;
         for (int i = 0; i < m->rows; i++)
         {
-            sum += pow(m->entries[i][j] - meanmat->entries[i][0], 2);
+            sum += pow(m->entries[i][j] - meanmat->entries[j][0], 2);
         }
-        meanmat->entries[j][0] = sqrt(sum / (m->rows));
+        stddivmat->entries[j][0] = sqrt(sum / (m->rows - 1));
     }
-    return stddiv;
+    return stddivmat;
+}
+
+Matrix *norm(Matrix *m)
+{
+    Matrix *normmat = matrix_create(m->rows, m->cols);
+    Matrix *meanmat = mean(m);
+    Matrix *stddivmat = stddiv(m);
+    for (int i = 0; i < m->rows; i++)
+    {
+        for (int j = 0; j < m->cols; j++)
+        {
+            printf("%1.3f ", (m->entries[i][j] - meanmat->entries[j][0]) / stddivmat->entries[j][0]);
+            normmat->entries[i][j] = (m->entries[i][j] - meanmat->entries[j][0]) / stddivmat->entries[j][0];
+        }
+    }
+    matrix_print(normmat);
+    return normmat;
 }
 /*
 lbltonum :: 1d label array -> 1d int array

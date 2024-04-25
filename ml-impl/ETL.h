@@ -3,3 +3,4 @@
 
 Matrix *mean(Matrix *m);
 Matrix *stddiv(Matrix *m);
+Matrix *norm(Matrix *m);
