@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAXCHAR 100
 
@@ -65,6 +66,58 @@ Matrix *matrix_loadfromCSV(char *filestring)
             e = atof(numstr);
             printf("%1.2f ", e);
             matrix->entries[i][j] = e;
+        }
+    }
+
+    fclose(file);
+    matrix_print(matrix);
+    return matrix;
+}
+
+Matrix *matrix_loadfromCSV2(char *filestring)
+{
+    FILE *file = fopen(filestring, "r");
+    if (file == NULL)
+    {
+        printf("Error opening file\n");
+        exit(EXIT_FAILURE);
+    }
+
+    char entry[MAXCHAR];
+    fgets(entry, MAXCHAR, file);
+    Matrix *matrix;
+    int col = 0;
+    int i = 0;
+    while (entry[i] != '\0')
+    {
+        if (entry[i] == ',')
+            col += 1;
+        i++;
+    }
+    col++;
+
+    int row = 0;
+    while (fgets(entry, MAXCHAR, file))
+    {
+        row++;
+    }
+
+    fclose(file);
+
+    matrix = matrix_create(row, col);
+
+    file = fopen(filestring, "r");
+
+    for (int i = 0; i < row; i++)
+    {
+        fgets(entry, MAXCHAR, file);
+        char *token = strtok(entry, ",");
+        int j = 0;
+        while (token != NULL)
+        {
+            matrix->entries[i][j] = atof(token);
+            token = strtok(NULL, ",");
+            j++;
         }
     }
 

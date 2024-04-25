@@ -18,6 +18,7 @@ void matrix_randomise(Matrix *m, int n);
 int matrix_argmax(Matrix *m);
 Matrix *matrix_flatten(Matrix *m, int axis);
 Matrix *matrix_loadfromCSV(char *filestring);
+Matrix *matrix_loadfromCSV2(char *filestring);
 
 Matrix *multiply(Matrix *m1, Matrix *m2);
 Matrix *add(Matrix *m1, Matrix *m2);

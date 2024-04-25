@@ -65,6 +65,11 @@ Matrix *norm(Matrix *m)
     matrix_print(normmat);
     return normmat;
 }
+
+double MeanSquareError(Matrix *m)
+{
+}
+
 /*
 lbltonum :: 1d label array -> 1d int array
 
